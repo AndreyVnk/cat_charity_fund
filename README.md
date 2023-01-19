@@ -54,8 +54,9 @@ Run project:
 uvicorn app.main:app --reload
 ```
 The project will be available at http://127.0.0.0:8000/ .
-Documentation is aavailable at:
-Swagger: http://127.0.0.0:8000/docs
-ReDoc: http://127.0.0.0:8000/redoc
+
+Documentation is available at:
+* Swagger: http://127.0.0.0:8000/docs
+* ReDoc: http://127.0.0.0:8000/redoc
 
 **Author:** AndreyVnk
