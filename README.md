@@ -1,4 +1,4 @@
-## Cat Charity fund
+## Cat Charity Fund
 
 **Stack:**
 * Python 3.9
@@ -33,8 +33,6 @@ Install requirements:
 ```
 pip install -r requirements.txt
 ```
-
-### START
 Create .env file or change app.core.config parameters:
 ```
 touch .env
@@ -48,10 +46,16 @@ SECRET=Secret
 FIRST_SUPERUSER_EMAIL=login@email.com
 FIRST_SUPERUSER_PASSWORD=password
 ```
+
+### START
+
 Run project:
 ```
 uvicorn app.main:app --reload
 ```
 The project will be available at http://127.0.0.0:8000/ .
+Documentation is aavailable at:
+Swagger: http://127.0.0.0:8000/docs
+ReDoc: http://127.0.0.0:8000/redoc
 
 **Author:** AndreyVnk
