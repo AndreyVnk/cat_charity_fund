@@ -68,7 +68,7 @@ async def partially_update_project(
         )
 
     if project.close_date:
-        await check_close_date()
+        check_close_date()
 
     project = await charity_project_crud.update(
         project, obj_in, session

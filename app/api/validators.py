@@ -23,7 +23,7 @@ async def check_name_duplicate(
         )
 
 
-async def check_close_date(
+def check_close_date(
 ) -> None:
     raise HTTPException(
         status_code=HTTPStatus.BAD_REQUEST,

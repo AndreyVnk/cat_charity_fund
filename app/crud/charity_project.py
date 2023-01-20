@@ -3,6 +3,7 @@ from typing import Optional
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.config import NULL_VALUE
 from app.crud.base import CRUDBase
 from app.models import CharityProject
 
@@ -34,7 +35,7 @@ class CRUDMeetingRoom(CRUDBase):
         projects = await session.execute(
             select(CharityProject).where(
                 CharityProject.id == project_id,
-                CharityProject.invested_amount != False  # noqa
+                CharityProject.invested_amount != NULL_VALUE
             )
         )
         return projects.scalars().first()
