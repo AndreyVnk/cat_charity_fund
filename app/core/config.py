@@ -2,6 +2,8 @@ from typing import Optional
 
 from pydantic import BaseSettings, EmailStr
 
+NULL_VALUE = 0
+
 
 class Settings(BaseSettings):
     app_title: str = 'QRKot'

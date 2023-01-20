@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.config import NULL_VALUE
 from app.models import FinancialBase
 
 
@@ -13,7 +14,7 @@ async def investment(
 ) -> FinancialBase:
     source_db_all = await session.execute(
         select(model_db).where(
-            model_db.fully_invested == False  # noqa
+            model_db.fully_invested == NULL_VALUE
         ).order_by(model_db.create_date)
     )
     source_db_all = source_db_all.scalars().all()
