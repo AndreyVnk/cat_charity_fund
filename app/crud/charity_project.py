@@ -1,6 +1,7 @@
+from datetime import datetime
 from typing import Optional
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import NULL_VALUE
@@ -39,6 +40,41 @@ class CRUDMeetingRoom(CRUDBase):
             )
         )
         return projects.scalars().first()
+
+    async def get_projects_by_completion_rate(
+            self,
+            session: AsyncSession,
+    ) -> list[list[str]]:
+        projects = await session.execute(
+            select(
+                [
+                    CharityProject.name,
+                    (func.round(
+                        (func.julianday(
+                            CharityProject.close_date
+                        ) - func.julianday(
+                            CharityProject.create_date
+                        )) * 86400
+                    )
+                    ).label('date_diff'),
+                    CharityProject.description
+                ]
+            ).where(
+                CharityProject.fully_invested != NULL_VALUE
+            ).order_by('date_diff')
+        )
+        projects = [
+            [
+                row[0],
+                str(
+                    datetime.fromtimestamp(
+                        int(row[1])
+                    ) - datetime.fromtimestamp(0)
+                ),
+                row[2]
+            ] for row in projects
+        ]
+        return projects
 
 
 charity_project_crud = CRUDMeetingRoom(CharityProject)
