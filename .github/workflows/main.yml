@@ -28,6 +28,6 @@ jobs:
         python -m flake8
         # перейти в папку, содержащую manage.py — 
         # <корневая_папка_infra_actions>/<папка_проекта>/manage.py
-        cd cat_charity_fund/
+        # cd cat_charity_fund/
         # запустить написанные разработчиком тесты
         pytest
