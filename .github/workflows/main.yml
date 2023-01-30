@@ -1,25 +1,22 @@
-name: CI
+name: Cat_fund
 
-on:
-  push:
-    branches: [master]
+on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     
-  steps:
-  
+    steps:
+    
+        uses: actions/checkout@v2
 
-      uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-    - name: Run a one-line script
-      run: echo Hello, world!
-
-    - name: Run a multi-line script
-      run: |
-        echo one
-        echo two
+      - name: Run a multi-line script
+        run: |
+          echo one
+          echo two
     
   
     
