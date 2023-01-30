@@ -59,4 +59,4 @@ Documentation is available at:
 * Swagger: http://127.0.0.0:8000/docs
 * ReDoc: http://127.0.0.0:8000/redoc
 
-**Author:** AndreyVnk
+**Author:** AndreyVnk 
